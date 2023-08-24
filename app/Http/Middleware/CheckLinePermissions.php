@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
-class CheckTeacherPermissions
+class CheckLinePermissions
 {
     use ApiResponse;
     /**
@@ -26,8 +26,6 @@ class CheckTeacherPermissions
         // 这里做一下权限判断
         $routeName = $request->route()->getName();
         $admin = Auth::user();
-        // 是否是超级管理员
-        $isSupAdmin = $admin->can('all.permission');
 
         # 检查权限
         $admin->hasPermissionTo($routeName);

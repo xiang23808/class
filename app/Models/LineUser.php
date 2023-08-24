@@ -8,8 +8,9 @@ use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class LineUser extends Model
+class LineUser extends Authenticatable
 {
+    use HasApiTokens, Notifiable, HasRoles;
     protected $guarded = [];
 
 

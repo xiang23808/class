@@ -28,7 +28,7 @@ class CheckStudentPermissions
         $admin = Auth::user();
 
         # 检查权限
-        //$admin->hasPermissionTo($routeName);
+        $admin->hasPermissionTo($routeName);
 
         $role = $admin->roles[0];
         $request->attributes->add(['page_size' => $request->input('page_size',15)]);

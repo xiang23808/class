@@ -28,5 +28,6 @@ class ResponseEnum
     const UNWATCHED = [2005, '还未关注'];
     const NOT_SAME_SCHOOL = [2006, '不同学校'];
     const NOT_ADMIN_MESSAGE = [2007, '不允许给系统发信息'];
+    const BOUND = [2008, '不能重复绑定'];
 
 }

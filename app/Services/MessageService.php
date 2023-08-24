@@ -15,7 +15,7 @@ class MessageService
 {
     use ApiResponse;
 
-    public function pushMessage($group,$message)
+    public function pushMessage($group, $message)
     {
         $pushMessage = json_encode([
             'from_id' => 0,
@@ -25,20 +25,20 @@ class MessageService
         ]);
         Gateway::sendToGroup($group, $pushMessage);
 
-        $this->pushMessageSave($group,$message);
+        $this->pushMessageSave($group, $message);
     }
 
     //推送消息入库
-    public function pushMessageSave($group,$message)
+    public function pushMessageSave($group, $message)
     {
         $users = Gateway::getUidListByGroup($group);
-        foreach ($users as $use){
+        foreach ($users as $use) {
             //消息入库
             $data = [
                 'from' => 0,
-                'to' => explode("_",$use)[1],
+                'to' => explode("_", $use)[1],
                 'type' => Message::TYPE_PUSH,
-                'message_type' => Message::MESSAGE_TYPE_TTS,
+                'message_type' => explode("_", $use)[0] == 'line' ? Message::MESSAGE_TYPE_ATL : Message::MESSAGE_TYPE_TTS,
                 'message' => $message
             ];
 

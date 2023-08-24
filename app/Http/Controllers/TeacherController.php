@@ -193,7 +193,6 @@ class TeacherController extends Controller
         Gateway::bindUid($clientId, 'teacher_' . $userId);
         Gateway::joinGroup($clientId, 'teacher');
 
-        Gateway::sendToUid('teacher_' . $userId, '111');
         return $this->success('client_id绑定成功');
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckLinePermissions;
 use App\Http\Middleware\CheckStudentPermissions;
 use App\Http\Middleware\CheckTeacherPermissions;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -62,5 +63,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'check.teacher.permissions' => CheckTeacherPermissions::class,
         'check.student.permissions' => CheckStudentPermissions::class,
+        'check.line.permissions' => CheckLinePermissions::class,
     ];
 }

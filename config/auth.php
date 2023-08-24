@@ -55,6 +55,10 @@ return [
             'driver' => 'passport',
             'provider' => 'teachers',
         ],
+        'line' => [
+            'driver' => 'passport',
+            'provider' => 'line_users',
+        ],
     ],
 
     /*
@@ -86,6 +90,10 @@ return [
         'teachers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Teacher::class,
+        ],
+        'line_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\LineUser::class,
         ],
 
         // 'users' => [

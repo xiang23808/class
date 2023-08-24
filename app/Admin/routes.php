@@ -17,5 +17,6 @@ Route::group([
     $router->resource('role', "RoleController");
     $router->resource('school', "SchoolController");
     $router->resource('permission', "PermissionController");
+    $router->resource('line', "LineController");
 
 });

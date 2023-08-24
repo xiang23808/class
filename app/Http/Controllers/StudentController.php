@@ -132,7 +132,6 @@ class StudentController extends Controller
         Gateway::bindUid($clientId, 'student_' . $userId);
         Gateway::joinGroup($clientId, 'student');
 
-        Gateway::sendToUid('student_' . $userId, '222');
         return $this->success('client_id绑定成功');
     }
 

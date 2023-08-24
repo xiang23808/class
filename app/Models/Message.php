@@ -23,15 +23,18 @@ class Message extends Model
 
     const MESSAGE_TYPE_STT = 1;
     const MESSAGE_TYPE_TTS = 2;
+    const MESSAGE_TYPE_ATL = 3;
 
     static $messageTypeList = [
         self::MESSAGE_TYPE_STT,
         self::MESSAGE_TYPE_TTS,
+        self::MESSAGE_TYPE_ATL,
     ];
 
     static $messageTypeNameList = [
         self::MESSAGE_TYPE_STT => '学生->教师',
         self::MESSAGE_TYPE_TTS => '教师->学生',
+        self::MESSAGE_TYPE_ATL => '系统->Line',
     ];
 
 }

@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('student')->group(function () {
     Route::post('login', 'StudentController@login')->name('api.student.login');
 
-    Route::middleware(["auth:student","check.student.permissions"])->group(function () {
+    Route::middleware(["auth:student", "check.student.permissions"])->group(function () {
         Route::post('info', 'StudentController@info')->name('api.student.info');
         Route::post('teacher_list', 'StudentController@teacherList')->name('api.student.teacher_list');
         Route::post('watch_teacher', 'StudentController@watchTeacher')->name('api.student.watch_teacher');
@@ -41,7 +41,7 @@ Route::prefix('teacher')->group(function () {
     Route::post('create', 'TeacherController@create')->name('api.teacher.create');
     Route::get('invite_register', 'TeacherController@inviteRegister')->name('api.teacher.invite_register');
 
-    Route::middleware(["auth:teacher","check.teacher.permissions"])->group(function () {
+    Route::middleware(["auth:teacher", "check.teacher.permissions"])->group(function () {
         Route::post('info', 'TeacherController@info')->name('api.teacher.info');
         Route::post('create_school', 'TeacherController@createSchool')->name('api.teacher.create_school');
         Route::post('invite', 'TeacherController@invite')->name('api.teacher.invite');
@@ -57,10 +57,14 @@ Route::prefix('teacher')->group(function () {
     });
 });
 
-Route::prefix('test')->group(function () {
-    Route::get('info', 'TestController@info')->name('api.test.info');
-});
 Route::prefix('line')->group(function () {
-    Route::get('callback', 'LineController@login')->name('api.line.callback');
+    Route::get('login', 'LineController@login')->name('api.line.login');
     Route::get('redirect', 'LineController@redirect')->name('api.line.redirect');
+    Route::middleware(["auth:line", "check.line.permissions"])->group(function () {
+        Route::post('bind_student', 'LineController@bindStudent')->name('api.line.bind_student');
+        Route::post('bind_teacher', 'LineController@bindTeacher')->name('api.line.bind_teacher');
+        Route::post('student_list', 'LineController@studentList')->name('api.line.student_list');
+        Route::post('teacher_list', 'LineController@teacherList')->name('api.line.teacher_list');
+        Route::post('wk_bind', 'LineController@wkBind')->name('api.line.wk_bind');
+    });
 });
