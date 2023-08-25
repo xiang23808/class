@@ -77,7 +77,7 @@ class StudentController extends AdminController
         $form->display('id', 'ID');
         $form->display('name', '名称');
         $form->display('email', '邮箱');
-        $form->select('roles', '角色')->options(Role::all()->pluck('name', 'id'));
+        $form->multipleSelect('roles', '角色')->options(Role::all()->pluck('name', 'id'));
         $form->display('created_at', '创建时间');
         $form->display('updated_at', '修改时间');
 

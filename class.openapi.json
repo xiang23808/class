@@ -1,0 +1,655 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "class",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "学生"
+    }
+  ],
+  "paths": {
+    "/api/student/login": {
+      "post": {
+        "summary": "学生登录",
+        "x-apifox-folder": "学生",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "学生"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "name": "student1",
+                "password": "student1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "操作成功",
+                      "data": {
+                        "user": {
+                          "id": 1,
+                          "name": "student1",
+                          "email": "student1@gmail.com",
+                          "password": "$2y$10$/l2WfwsUhqYqd0IWhHn5sOtJfHPC8HWTlTwjFSAgPA4yIaeegsHqa",
+                          "created_at": null,
+                          "updated_at": null
+                        },
+                        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIwYTNlOTllMTNmNzQ0NGY5ZmI2YmNhNTdhZjkzM2ZiNzVlYTI1NjRiM2ZmMGJkYzM1ZjMzZmYwY2UwZmJhODQ1MDc4MzYxMWE1OWFjMTIzIn0.eyJhdWQiOiIxIiwianRpIjoiMjBhM2U5OWUxM2Y3NDQ0ZjlmYjZiY2E1N2FmOTMzZmI3NWVhMjU2NGIzZmYwYmRjMzVmMzNmZjBjZTBmYmE4NDUwNzgzNjExYTU5YWMxMjMiLCJpYXQiOjE2OTIwOTAzOTAsIm5iZiI6MTY5MjA5MDM5MCwiZXhwIjoxNzIzNzEyNzg5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.R0kvAWNyWbikIuikYr4_dHroBFNImheF3c_6YT8mBs6wZCmasje5AF4GWdB2MNyKl4t4H4hs9K1WrNPo93Vn9nqttb7xNMS-3UxAQvTfxo4YDTkCdJmK_3g3N3Uwa0mrMzVLe2aiZDlO_iBV0O80FLAQ-gJkOa6NnvIGdKACeNNYopVKJwvVh4j3VcdLHrUVbphtapIoX29tx8hjD8RqHscpzsxyIOrATysgf8xukgoOsbS1PVCzP_ww02biA5J2-U_hBsa_S7b9uhuFXK76VWEWIPRg2ZJUoNwN_2bwu2X3ejwVc74RKU0tcWscoD4YJ30jMI__Z3pVa04Arq668a-Ct7FaA7kmAnrZNn_BhLjKtxjN0r1QuLbE1YiJCWlhYC0f9t3UXHr9rzS4_rGSseEJ4DWtMRQPwH7EgjIR4AQ2D_dx-bkrxcUhTjFZB7NBQKXR1842g4MteLqYunyxqb88E7sltQpsqOU_sYPrScm9wK6vV6QYmoklpMSNDAI3GaIp_TuJYEjN3OMHhoPxFuWi0WrjeQcZiBaZ_tB0l1UfSU7NgTxBfJJYOw07pGUZEsUPd4Wx-vSvI5GRyQbiOCymzITq7teMEz0J8CSJ7_YMEJ-mtGhSQxevGVSG2AUrfYrT3dX25r-0qQss9cfa9GpqlvPwxq0wv_nBa5FYfnI"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/3158782/apis/api-103109553-run"
+      }
+    },
+    "/api/student/info": {
+      "post": {
+        "summary": "学生信息",
+        "x-apifox-folder": "学生",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "学生"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "操作成功",
+                      "data": {
+                        "user": {
+                          "id": 1,
+                          "name": "student1",
+                          "email": "student1@gmail.com",
+                          "password": "$2y$10$/l2WfwsUhqYqd0IWhHn5sOtJfHPC8HWTlTwjFSAgPA4yIaeegsHqa",
+                          "created_at": null,
+                          "updated_at": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/3158782/apis/api-103127002-run"
+      }
+    },
+    "/api/student/teacher_list": {
+      "post": {
+        "summary": "学生查询教师列表",
+        "x-apifox-folder": "学生",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "学生"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "操作成功",
+                      "data": {
+                        "user": {
+                          "id": 1,
+                          "name": "student1",
+                          "email": "student1@gmail.com",
+                          "password": "$2y$10$/l2WfwsUhqYqd0IWhHn5sOtJfHPC8HWTlTwjFSAgPA4yIaeegsHqa",
+                          "created_at": null,
+                          "updated_at": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/3158782/apis/api-103712492-run"
+      }
+    },
+    "/api/student/watch_teacher": {
+      "post": {
+        "summary": "关注教师",
+        "x-apifox-folder": "学生",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "学生"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "teacher_id": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "操作成功",
+                      "data": "{}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/3158782/apis/api-103735811-run"
+      }
+    },
+    "/api/student/unwatch_teacher": {
+      "post": {
+        "summary": "取消关注教师",
+        "x-apifox-folder": "学生",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "学生"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "teacher_id": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "操作成功",
+                      "data": "{}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/3158782/apis/api-103745714-run"
+      }
+    },
+    "/api/student/watch_teacher_list": {
+      "post": {
+        "summary": "关注教师列表",
+        "x-apifox-folder": "学生",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "学生"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "操作成功",
+                      "data": {
+                        "watchList": {
+                          "list": [
+                            {
+                              "id": 2,
+                              "student_id": 1,
+                              "teacher_id": 1,
+                              "created_at": "2023-08-17 15:54:49",
+                              "updated_at": "2023-08-17 15:54:49",
+                              "teacher_name": "teacher1"
+                            },
+                            {
+                              "id": 3,
+                              "student_id": 1,
+                              "teacher_id": 2,
+                              "created_at": "2023-08-17 15:54:57",
+                              "updated_at": "2023-08-17 15:54:57",
+                              "teacher_name": "teacher2"
+                            }
+                          ],
+                          "pagination": {
+                            "total_num": 2,
+                            "current_page": 1,
+                            "page_size": 15,
+                            "last_page": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/3158782/apis/api-103745815-run"
+      }
+    },
+    "/api/student/send_meg_to_teacher": {
+      "post": {
+        "summary": "给教师发消息",
+        "x-apifox-folder": "学生",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "学生"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "teacher_id": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "操作成功",
+                      "data": "{}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/3158782/apis/api-105051482-run"
+      }
+    },
+    "/api/student/get_history_message": {
+      "post": {
+        "summary": "获取历史消息",
+        "x-apifox-folder": "学生",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "学生"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "teacher_id": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "操作成功",
+                      "data": [
+                        {
+                          "date": "2023-08-23 17:39:55",
+                          "text": {
+                            "text": "654321"
+                          },
+                          "mine": false,
+                          "name": "teacher1"
+                        },
+                        {
+                          "date": "2023-08-23 17:41:03",
+                          "text": {
+                            "text": "654321"
+                          },
+                          "mine": false,
+                          "name": "teacher1"
+                        },
+                        {
+                          "date": "2023-08-23 17:42:49",
+                          "text": {
+                            "text": "654321"
+                          },
+                          "mine": false,
+                          "name": "teacher1"
+                        },
+                        {
+                          "date": "2023-08-23 17:43:40",
+                          "text": {
+                            "text": "11"
+                          },
+                          "mine": true,
+                          "name": "teacher1"
+                        },
+                        {
+                          "date": "2023-08-23 17:43:48",
+                          "text": {
+                            "text": "654321"
+                          },
+                          "mine": false,
+                          "name": "teacher1"
+                        },
+                        {
+                          "date": "2023-08-23 17:45:31",
+                          "text": {
+                            "text": "654321"
+                          },
+                          "mine": false,
+                          "name": "teacher1"
+                        },
+                        {
+                          "date": "2023-08-23 17:45:40",
+                          "text": {
+                            "text": "65432"
+                          },
+                          "mine": false,
+                          "name": "teacher1"
+                        },
+                        {
+                          "date": "2023-08-23 17:58:55",
+                          "text": {
+                            "text": "ertrtrt"
+                          },
+                          "mine": false,
+                          "name": "teacher1"
+                        },
+                        {
+                          "date": "2023-08-23 17:59:03",
+                          "text": {
+                            "text": "rrrr"
+                          },
+                          "mine": true,
+                          "name": "teacher1"
+                        },
+                        {
+                          "date": "2023-08-23 17:59:08",
+                          "text": {
+                            "text": "ccc"
+                          },
+                          "mine": false,
+                          "name": "teacher1"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/3158782/apis/api-105279565-run"
+      }
+    },
+    "/api/student/get_message_user": {
+      "post": {
+        "summary": "获取消息用户",
+        "x-apifox-folder": "学生",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "学生"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "message": "操作成功",
+                      "data": [
+                        {
+                          "id": 1,
+                          "name": "teacher1"
+                        },
+                        {
+                          "id": 3,
+                          "name": "teacher3"
+                        },
+                        {
+                          "id": 5,
+                          "name": "3650540371"
+                        },
+                        {
+                          "id": 8,
+                          "name": "365054037"
+                        },
+                        {
+                          "id": 0,
+                          "name": "admin"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/3158782/apis/api-105280477-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  },
+  "servers": []
+}
