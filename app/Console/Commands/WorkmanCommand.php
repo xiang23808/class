@@ -66,7 +66,7 @@ class WorkmanCommand extends Command
 
     private function startGateWay()
     {
-        $gateway = new Gateway("websocket://0.0.0.0:6379");
+        $gateway = new Gateway("websocket://0.0.0.0:".env('WS_PORT',6379));
         $gateway->name                 = 'Gateway';
         $gateway->count                = 1;
         $gateway->lanIp                = '127.0.0.1';
