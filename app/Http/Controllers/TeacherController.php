@@ -46,6 +46,13 @@ class TeacherController extends Controller
     public function create(CreateRequest $request)
     {
         $user = app(TeacherService::class)->create($request->name, $request->email, $request->password);
+        $data = [
+            'name' => $request->school_name,
+            'apply_id' => $user->id,
+            'own_id' => $user->id,
+        ];
+        $school = School::create($data);
+        $user->assignRole('教师管理员');
         return $this->success($user);
     }
 
@@ -92,6 +99,7 @@ class TeacherController extends Controller
         $teacherService = app(TeacherService::class);
         $user = $teacherService->create($name, $email, '123456');
         $teacherService->inviteRegister($schoolId, $user);
+        $user->assignRole('教师');
         return $this->success('请打开链接登录，初始密码(123456)：' . env('WEB_URL'), ResponseEnum::INVITE_OK);
     }
 
@@ -127,6 +135,7 @@ class TeacherController extends Controller
         $teacherService = app(TeacherService::class);
         $user = $teacherService->createStudent($request->name, $request->email, bcrypt($request->password));
         $teacherService->bindSchool($request->school_id, $user);
+        $user->assignRole('学生');
 
         return $this->success($user);
     }

@@ -38,6 +38,7 @@ class SchoolController extends AdminController
         $grid->column('status', '状态')->editable('select', [1 => '申请中', 2 => '通过', 3 => '拒绝']);
         $grid->column('created_at', '创建时间');
         $grid->column('updated_at', '修改时间');
+        $grid->disableCreation();
 
         return $grid;
     }
@@ -70,7 +71,7 @@ class SchoolController extends AdminController
         $form = new Form(new School);
 
         $form->display('id', 'ID');
-        $form->display('name', '名称');
+        $form->text('name', '名称');
         $form->display('status', '状态');
         $form->display('created_at', '创建时间');
         $form->display('updated_at', '修改时间');

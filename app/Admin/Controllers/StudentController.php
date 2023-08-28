@@ -39,6 +39,7 @@ class StudentController extends AdminController
             $tools->append(new StudentMessage());
         });
 
+        $grid->disableCreation();
 
         return $grid;
     }
@@ -75,8 +76,8 @@ class StudentController extends AdminController
         $form = new Form(new Student);
 
         $form->display('id', 'ID');
-        $form->display('name', '名称');
-        $form->display('email', '邮箱');
+        $form->text('name', '名称');
+        $form->text('email', '邮箱');
         $form->multipleSelect('roles', '角色')->options(Role::all()->pluck('name', 'id'));
         $form->display('created_at', '创建时间');
         $form->display('updated_at', '修改时间');

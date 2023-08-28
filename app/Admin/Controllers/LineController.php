@@ -38,6 +38,7 @@ class LineController extends AdminController
         $grid->tools(function (Grid\Tools $tools) {
             $tools->append(new LineMessage());
         });
+        $grid->disableCreation();
 
 
         return $grid;
@@ -75,9 +76,9 @@ class LineController extends AdminController
         $form = new Form(new LineUser);
 
         $form->display('id', 'ID');
-        $form->display('name', '名称');
-        $form->display('email', '邮箱');
-        $form->select('roles', '角色')->options(Role::all()->pluck('name', 'id'));
+        $form->text('name', '名称');
+        $form->text('email', '邮箱');
+        $form->multipleSelect('roles', '角色')->options(Role::all()->pluck('name', 'id'));
         $form->display('created_at', '创建时间');
         $form->display('updated_at', '修改时间');
 

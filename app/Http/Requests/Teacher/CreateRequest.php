@@ -27,6 +27,7 @@ class CreateRequest extends FormRequest
             'name' => 'required|max:200',
             'email' => 'required|email|max:200|unique:teachers',
             'password' => 'required|max:20',
+            'school_name' => 'required|max:200|unique:schools,name',
         ];
     }
 
@@ -46,6 +47,9 @@ class CreateRequest extends FormRequest
             'email.unique' => '用户已存在',
             'password.required' => '密码必须存在',
             'password.max' => '密码不能超过20字符',
+            'school_name.required' => 'school_name必须存在',
+            'school_name.max' => 'school_name不能超过200字符',
+            'school_name.unique' => '学校名已存在',
         ];
     }
 }
