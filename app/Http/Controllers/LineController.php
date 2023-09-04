@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Line\BindStudentRequest;
+use App\Http\Requests\Line\BindTeacherRequest;
+use App\Http\Requests\Line\WkBindRequest;
 use App\Models\LineBind;
 use App\Models\LineUser;
 use App\Models\Student;
@@ -36,7 +39,13 @@ class LineController extends Controller
         return redirect()->to(Socialite::driver('line')->stateless()->redirect()->getTargetUrl());
     }
 
-    public function bindStudent(Request $request)
+    /**
+     * 绑定学生
+     * @param BindStudentRequest $request
+     * @return mixed
+     * @throws \App\Exceptions\ApiException
+     */
+    public function bindStudent(BindStudentRequest $request)
     {
         $data = [
             'line_id' => \Auth::user()->id,
@@ -51,7 +60,13 @@ class LineController extends Controller
         return $this->message();
     }
 
-    public function bindTeacher(Request $request)
+    /**
+     * 绑定教师
+     * @param BindTeacherRequest $request
+     * @return mixed
+     * @throws \App\Exceptions\ApiException
+     */
+    public function bindTeacher(BindTeacherRequest $request)
     {
         $count = LineBind::where(['line_id' => \Auth::user()->id, 'type' => LineBind::TYPE_TEACHER])->count();
         if ($count) {
@@ -65,6 +80,11 @@ class LineController extends Controller
         return $this->message();
     }
 
+    /**
+     * 学生列表
+     * @param Request $request
+     * @return mixed
+     */
     public function studentList(Request $request)
     {
         $students = Student::latest()->paginate($request->page_size);
@@ -72,6 +92,11 @@ class LineController extends Controller
         return $this->success($students);
     }
 
+    /**
+     * 教师列表
+     * @param Request $request
+     * @return mixed
+     */
     public function teacherList(Request $request)
     {
         $students = Teacher::latest()->paginate($request->page_size);
@@ -81,10 +106,10 @@ class LineController extends Controller
 
     /**
      * 教师绑定ws
-     * @param Request $request
+     * @param WkBindRequest $request
      * @return mixed
      */
-    public function wkBind(Request $request)
+    public function wkBind(WkBindRequest $request)
     {
         $userId = \Auth::user()->id;
         $clientId = $request->get('client_id');

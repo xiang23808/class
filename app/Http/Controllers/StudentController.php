@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ResponseEnum;
+use App\Http\Requests\Student\GetHistoryMessageRequest;
 use App\Http\Requests\Student\LoginRequest;
+use App\Http\Requests\Student\SendMegToTeacherRequest;
 use App\Http\Requests\Student\UnWatchRequest;
 use App\Http\Requests\Student\WatchRequest;
+use App\Http\Requests\Student\WkBindRequest;
 use App\Models\Message;
 use App\Models\SchoolStudent;
 use App\Models\SchoolTeacher;
@@ -121,10 +124,10 @@ class StudentController extends Controller
 
     /**
      * 学生绑定ws
-     * @param Request $request
+     * @param WkBindRequest $request
      * @return mixed
      */
-    public function wkBind(Request $request)
+    public function wkBind(WkBindRequest $request)
     {
         $userId = \Auth::user()->id;
         $clientId = $request->get('client_id');
@@ -137,10 +140,10 @@ class StudentController extends Controller
 
     /**
      * 学生给教师发消息
-     * @param Request $request
+     * @param SendMegToTeacherRequest $request
      * @return mixed
      */
-    public function sendMegToTeacher(Request $request)
+    public function sendMegToTeacher(SendMegToTeacherRequest $request)
     {
         $teacherId = 'teacher_' . $request->get('user_id');
         $message = json_encode([
@@ -168,10 +171,10 @@ class StudentController extends Controller
 
     /**
      * 获取历史消息
-     * @param Request $request
+     * @param GetHistoryMessageRequest $request
      * @return mixed
      */
-    public function getHistoryMessage(Request $request)
+    public function getHistoryMessage(GetHistoryMessageRequest $request)
     {
         $teacherId = $request->get('teacher_id');
         $myId = \Auth::user()->id;

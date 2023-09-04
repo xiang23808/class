@@ -1,58 +1,61 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# 简介
+一个远程的课题，由php+vue的小型的教务管理系统
+# 课题要求
+基于Laravel 5.5 LTS和 Laravel Passport 以及第三方扩展包。设计一套小型的教务管理系统
+用户：
+系统管理员
+教师：角色为 学校管理员、普通教师
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+学生
+Api：教师和学生可以通过接口实现多表认证(同一个接口登录系统)以及操作，并且提供API文档。
+Web需求(用户端网站，前后端分离，所有的请求使用上面的Api和后端交互)：
 
-## About Laravel
+老师部分：
+1、教师可以通过邮箱注册网站，填写表单，申请开通学校。一个教师可以申请多个学校。系统管理员在后台审批。申请者自动角色为 学校管理员
+2、学校管理员可以通过邮箱邀请别的人成为学校的教师，角色为普通。
+3、学校管理员可以在后台创建学生以及给学生发消息（websocket）
+4、普通教师只能查看学生。
+5、老师可以查看关注自己的学生列表
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+学生部分：
+1、学生可以用提供的帐号密码进行网站登录。学生只能属于一个学校。
+2、学生可以在网站和老师即时聊天（websocket）
+3、学生可以在网站收到老师发来的消息通知（websocket）
+4、学生可以关注、取消关注喜欢的老师
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Line：
+Line用户可以第三方登录系统，并且通过Api绑定已有的用户。一个Line用户可以同时绑定一个教师和多个学生。
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
 
-## Learning Laravel
+后台Admin(使用Laravel Admin)
+系统管理员能登录, 并且进行系统级的管理操作。
+系统管理员可以推送消息给网站用户，也可以推送消息给Line的用户。
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+部署：项目部署到Heroku，可以正常线上完整使用。
+websocket如果自搭服务器过于困难可以考虑使用Heroku Addon的Pusher
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+# 完成状态
+前端仓库: https://github.com/xiang23808/class_web.git
+后端仓库:https://github.com/xiang23808/class.git
 
-## Laravel Sponsors
+前端网址:http://class_web.mjsdfgg.cn/
+教师管理员账号:
+teacher1@gmail.com    teacher1
+教师账号:
+teacher2@gmail.com    teacher2
+teacher3@gmail.com    teacher3
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+后端网址:http://class.mjsdfgg.cn/admin
+管理员账号:
+admin    admin
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
+接口地址:
+http://class.mjsdfgg.cn
+接口文档:
+根目录/class.openapi.json
 
-## Contributing
+未实现功能：Line登录调试
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 后台推送服务启动和停止
+php artisan wk start --d
+php artisan wk stop

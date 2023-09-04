@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\ApiException;
 use App\Helpers\ResponseEnum;
 use App\Http\Requests\Teacher\CreateRequest;
 use App\Http\Requests\Teacher\CreateSchoolRequest;
 use App\Http\Requests\Teacher\CreateStudentRequest;
+use App\Http\Requests\Teacher\GetHistoryMessageRequest;
 use App\Http\Requests\Teacher\InviteRegisterRequest;
 use App\Http\Requests\Teacher\InviteRequest;
 use App\Http\Requests\Teacher\LoginRequest;
+use App\Http\Requests\Teacher\SchoolTeacherListRequest;
+use App\Http\Requests\Teacher\SendMegToStudentRequest;
+use App\Http\Requests\Teacher\WkBindRequest;
 use App\Mail\InviteMail;
 use App\Models\Message;
 use App\Models\School;
@@ -21,7 +26,6 @@ use App\Services\TeacherService;
 use Carbon\Carbon;
 use GatewayClient\Gateway;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
@@ -178,9 +182,10 @@ class TeacherController extends Controller
 
     /**
      * 学校教师列表
+     * @param SchoolTeacherListRequest $request
      * @return mixed
      */
-    public function schoolTeacherList(Request $request)
+    public function schoolTeacherList(SchoolTeacherListRequest $request)
     {
         $teachers = Teacher::whereIn('id', SchoolTeacher::where('school_id', $request->school_id)->pluck('teacher_id'))->paginate($request->page_size);
 
@@ -191,10 +196,10 @@ class TeacherController extends Controller
 
     /**
      * 教师绑定ws
-     * @param Request $request
+     * @param WkBindRequest $request
      * @return mixed
      */
-    public function wkBind(Request $request)
+    public function wkBind(WkBindRequest $request)
     {
         $userId = \Auth::user()->id;
         $clientId = $request->get('client_id');
@@ -207,10 +212,11 @@ class TeacherController extends Controller
 
     /**
      * 教师给学生发消息
-     * @param Request $request
+     * @param SendMegToStudentRequest $request
      * @return mixed
+     * @throws ApiException
      */
-    public function sendMegToStudent(Request $request)
+    public function sendMegToStudent(SendMegToStudentRequest $request)
     {
         $studentId = 'student_' . $request->get('user_id');
         if (!$request->get('user_id')){
@@ -242,10 +248,10 @@ class TeacherController extends Controller
 
     /**
      * 获取历史消息
-     * @param Request $request
+     * @param GetHistoryMessageRequest $request
      * @return mixed
      */
-    public function getHistoryMessage(Request $request)
+    public function getHistoryMessage(GetHistoryMessageRequest $request)
     {
         $studentId = $request->get('student_id');
         $myId = \Auth::user()->id;
@@ -254,6 +260,7 @@ class TeacherController extends Controller
         })->orderByDesc('id')->limit(10)->get();
 
         $student = Student::find($studentId);
+        /** @var Collection $messages */
         $messages = $messages->map(function ($field) use ($student) {
             return collect([
                 'date' => Carbon::make($field->created_at)->toDateTimeString(),
